@@ -1,0 +1,20 @@
+# Web framework
+Flask==2.3.2              # If using Flask
+# OR Django==4.2.4
+# OR FastAPI==0.95.2  
+
+# Scraping libraries
+beautifulsoup4==4.12.2
+requests==2.31.0
+
+# Database
+PyMongo==4.5.1            # If using MongoDB
+
+# Background tasks (optional)
+APScheduler==3.10.1       # For scheduling scraper
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Others
+gunicorn==20.1.0          # For production WSGI server (optional)

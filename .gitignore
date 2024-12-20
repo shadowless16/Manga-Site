@@ -1,0 +1,28 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+.env
+
+# Node.js (frontend)
+node_modules/
+build/
+dist/
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Docker (optional)
+*.env
+docker-compose.override.yml
+
+# Database
+*.sqlite3

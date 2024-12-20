@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        #images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Manga Images</h1>
+    <div id="images"></div>
+
+    <script>
+        fetch('http://127.0.0.1:5000/api/manga')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);  // Debugging line to log the response
+
+                const imagesDiv = document.getElementById('images');
+                for (const site in data) {
+                    if (Array.isArray(data[site])) {
+                        data[site].forEach(url => {
+                            const imgElement = document.createElement('img');
+                            imgElement.src = url;
+                            imgElement.alt = `Manga image from ${site}`;
+                            imagesDiv.appendChild(imgElement);
+                        });
+                    } else {
+                        imagesDiv.innerHTML += `<p>${site}: ${data[site]}</p>`;
+                    }
+                }
+            })
+            .catch(err => console.log('Error fetching data:', err));
+    </script>
+</body>
+</html>
